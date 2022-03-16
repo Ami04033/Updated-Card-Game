@@ -1,5 +1,6 @@
 var playerCardArray = [[0,0,0,"",""], [0,0,0,"",""], [0,0,0,"",""]];
 var opponentCardArray = [[0,0,0,"",""], [0,0,0,"",""], [0,0,0,"",""]];
+var imageCardArray = ["goose.png","tiger.png","octopus.png","snake.jpg","dragon.jpg","griffin.png"];
 var playerHealth = 20;
 var opponentHealth = 20;
 
@@ -10,6 +11,7 @@ var opponentHealthDisp;
 var attackValues;
 var healthValues;
 var defenseValues;
+var imageValues;
 var titles;
 
 function initGame() {
@@ -20,11 +22,13 @@ function initGame() {
     attackValues = document.getElementsByClassName('attack');
     healthValues = document.getElementsByClassName('health');
     defenseValues = document.getElementsByClassName('defense');
+    imageValues = document.getElementsByClassName('card-img-top');
 
     for (let i = 0; i< attackValues.length; i++) {
         var attackVal = parseInt(Math.random() * 4 + 1);
         var healthVal = parseInt(Math.random() * 7 + 1);
         var defenseVal = parseInt(Math.random() * 3 + 1);
+
         if (i < 3) {
             opponentCardArray[i][0] = attackVal;
             opponentCardArray[i][1] = healthVal;
@@ -39,6 +43,11 @@ function initGame() {
             console.log("i is: " + i + " " +playerCardArray[i-3][2]);
         }
     } 
+
+    /*for(let i = 0; i< imageValues.length; i++){
+        var imageVal = parseInt(Math.random() * 5);
+        imageValues[i].innerHTML = '<img src="' + imageCardArray[imageVal] + '" class="card-img-top" alt="...">';
+    }*/
     updateDisplay();
 }
 
